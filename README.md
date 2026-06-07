@@ -1,4 +1,4 @@
-# TUBES PERT — Teknik Riset Operasi
+# TUBES Teknik Riset Operasi - Metode PERT
 
 Anggota:
 - Abdurrahman Rauf Budiman 2301102
