@@ -16,7 +16,7 @@ Aplikasi visualisasi jaringan PERT berbasis web menggunakan Next.js.
 1. Clone repository
 
 ```bash
-git clone https://github.com/username/nama-repo.git
+git clone https://github.com/rbdmn/Teknik-Riset-Operasi_PERT.git
 cd nama-repo/tubes-pert
 ```
 
