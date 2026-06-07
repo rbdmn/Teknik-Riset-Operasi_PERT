@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+/* ── Design tokens ───────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-floral-white: #fffcf2;
+  --color-silver:       #ccc5b9;
+  --color-charcoal:     #403d39;
+  --color-carbon:       #252422;
+  --color-paprika:      #eb5e28;
+
+  --background: var(--color-carbon);
+  --foreground: var(--color-floral-white);
+  --border:     rgba(204, 197, 185, 0.2);
 }
 
 @theme inline {
@@ -12,15 +20,59 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-carbon);
+  color: var(--color-floral-white);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-charcoal);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-paprika);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4541f;
+}
+
+/* ── Remove default shadows app-wide ────────────────────── */
+* {
+  box-shadow: none !important;
+}
+
+/* ── React Flow Controls override ───────────────────────── */
+.react-flow__controls {
+  box-shadow: none !important;
+}
+.react-flow__controls-button {
+  background-color: #252422 !important;
+  border-color: rgba(204, 197, 185, 0.2) !important;
+  border-bottom-color: rgba(204, 197, 185, 0.2) !important;
+}
+.react-flow__controls-button svg {
+  fill: #ccc5b9 !important;
+  max-width: 14px;
+  max-height: 14px;
+}
+.react-flow__controls-button:hover {
+  background-color: #eb5e28 !important;
+}
+.react-flow__controls-button:hover svg {
+  fill: #fffcf2 !important;
 }
