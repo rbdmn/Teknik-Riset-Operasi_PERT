@@ -255,10 +255,10 @@ export default function HomePage() {
             {/* Anggota 1 */}
             <div style={{ marginBottom: 12 }}>
               <div style={{ fontSize: 15, color: "#fffcf2", fontWeight: 500 }}>
-                Nama Anggota Satu
+                Abdurrahman Rauf Budiman
               </div>
               <div style={{ fontSize: 12, color: "#ccc5b9", marginTop: 2 }}>
-                123456789
+                2301102
               </div>
             </div>
 
@@ -270,10 +270,10 @@ export default function HomePage() {
               }}
             >
               <div style={{ fontSize: 15, color: "#fffcf2", fontWeight: 500 }}>
-                Nama Anggota Dua
+                Marco Henrik Abineno
               </div>
               <div style={{ fontSize: 12, color: "#ccc5b9", marginTop: 2 }}>
-                987654321
+                2301093
               </div>
             </div>
 
@@ -297,7 +297,7 @@ export default function HomePage() {
                 Studi Kasus
               </div>
               <div style={{ fontSize: 13, color: "#fffcf2" }}>
-                Alur Peluncuran Produk Baru — Retail
+                Alur Peluncuran Produk Baru Retail
               </div>
             </div>
           </div>

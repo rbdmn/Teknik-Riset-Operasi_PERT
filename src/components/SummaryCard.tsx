@@ -8,18 +8,14 @@ interface Props {
   criticalPath: string[];
 }
 
-function fmt(n: number, dec = 2): string {
-  return Number.isInteger(n) ? String(n) : n.toFixed(dec);
+function fmt(n: number): string {
+  return String(Math.round(n));
 }
 
 export default function SummaryCard({ activities, projectDuration, criticalPath }: Props) {
   const totalActivities  = activities.length;
   const criticalCount    = criticalPath.length;
   const nonCriticalCount = totalActivities - criticalCount;
-
-  const criticalActs  = activities.filter((a) => a.isCritical);
-  const totalVariance = criticalActs.reduce((sum, a) => sum + a.variance, 0);
-  const stdDev        = Math.sqrt(totalVariance);
 
   const actMap = new Map(activities.map((a) => [a.id, a]));
 
@@ -28,7 +24,7 @@ export default function SummaryCard({ activities, projectDuration, criticalPath 
       label: "Durasi Proyek",
       value: `${fmt(projectDuration)}`,
       unit: "hari",
-      sub: `σ = ${fmt(stdDev)} hari`,
+      sub: "total jalur kritis",
     },
     {
       label: "Aktivitas Kritis",

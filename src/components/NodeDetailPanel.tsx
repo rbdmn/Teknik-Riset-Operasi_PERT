@@ -7,8 +7,8 @@ interface Props {
   onClose: () => void;
 }
 
-function fmt(n: number, dec = 2): string {
-  return Number.isInteger(n) ? String(n) : n.toFixed(dec);
+function fmt(n: number): string {
+  return String(Math.round(n));
 }
 
 // ── Blok kalkulasi step-by-step ──────────────────────────────
@@ -74,8 +74,7 @@ export default function NodeDetailPanel({ activity: act, onClose }: Props) {
     );
   }
 
-  const te       = act.te;
-  const variance = act.variance;
+  const te = act.te;
 
   const teLines = [
     "TE = (O + 4M + P) / 6",
@@ -84,14 +83,6 @@ export default function NodeDetailPanel({ activity: act, onClose }: Props) {
     `   = ${fmt(act.o + 4 * act.m + act.p)} / 6`,
   ];
   const teResult = `   = ${fmt(te)} hari`;
-
-  const varLines = [
-    "σ² = ((P − O) / 6)²",
-    `   = ((${fmt(act.p)} − ${fmt(act.o)}) / 6)²`,
-    `   = (${fmt(act.p - act.o)} / 6)²`,
-    `   = ${fmt((act.p - act.o) / 6, 4)}²`,
-  ];
-  const varResult = `   = ${fmt(variance)}`;
 
   const slackResult = `   = ${fmt(act.slack)}`;
 
@@ -195,9 +186,6 @@ export default function NodeDetailPanel({ activity: act, onClose }: Props) {
 
         {/* TE */}
         <FormulaBlock label="Expected Time (TE)" lines={teLines} resultLine={teResult} />
-
-        {/* Variance */}
-        <FormulaBlock label="Variance (σ²)" lines={varLines} resultLine={varResult} />
 
         {/* ES / EF */}
         <div>

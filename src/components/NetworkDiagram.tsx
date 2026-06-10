@@ -27,7 +27,7 @@ function PertNode({ data }: NodeProps) {
     isCritical: boolean;
   };
 
-  const fmt = (n: number) => Number.isInteger(n) ? String(n) : n.toFixed(2);
+  const fmt = (n: number) => String(Math.round(n));
 
   const nodeBg     = d.isCritical ? "#eb5e28"              : "#403d39";
   const nodeBorder = d.isCritical ? "#eb5e28"              : "rgba(204,197,185,0.4)";

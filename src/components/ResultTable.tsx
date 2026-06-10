@@ -7,8 +7,8 @@ interface Props {
   hideOMP?: boolean;
 }
 
-function fmt(n: number, dec = 2): string {
-  return Number.isInteger(n) ? String(n) : n.toFixed(dec);
+function fmt(n: number): string {
+  return String(Math.round(n));
 }
 
 const COLUMNS = [
@@ -18,7 +18,6 @@ const COLUMNS = [
   { key: "m",        label: "M",      align: "center", dim: true },
   { key: "p",        label: "P",      align: "center", dim: true },
   { key: "te",       label: "TE",     align: "center" },
-  { key: "variance", label: "σ²",     align: "center" },
   { key: "es",       label: "ES",     align: "center" },
   { key: "ef",       label: "EF",     align: "center" },
   { key: "ls",       label: "LS",     align: "center" },
@@ -127,11 +126,6 @@ export default function ResultTable({ activities, hideOMP = false }: Props) {
                   <span style={{ color: act.isCritical ? "#eb5e28" : "#fffcf2", fontWeight: 600 }}>
                     {fmt(act.te)}
                   </span>
-                </td>
-
-                {/* σ² */}
-                <td style={{ padding: "10px 12px", textAlign: "center", color: "#ccc5b9" }}>
-                  {fmt(act.variance)}
                 </td>
 
                 {/* ES, EF, LS, LF */}

@@ -227,7 +227,7 @@ export default function ActivityForm({ onCalculate, onModeChange, isLoading }: P
       for (const row of rows) {
         const m = parseFloat(row.m);
         initial[row.id] = (!isNaN(m) && m > 0)
-          ? (m / 7).toFixed(1)
+          ? String(Math.round(m / 7))
           : "";
       }
       setWeeklyValues(initial);
@@ -250,9 +250,9 @@ export default function ActivityForm({ onCalculate, onModeChange, isLoading }: P
         const dHari = w * 7;
         return {
           ...row,
-          o: (dHari * 0.8).toFixed(1),
-          m: dHari.toFixed(1),
-          p: (dHari * 1.3).toFixed(1),
+          o: String(Math.round(dHari * 0.8)),
+          m: String(Math.round(dHari)),
+          p: String(Math.round(dHari * 1.3)),
         };
       });
       onCalculate(converted);
